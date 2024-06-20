@@ -1,0 +1,26 @@
+package Day6;
+
+import java.util.Scanner;
+
+public class lexicographicalNumbers {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        counting(0,n);
+        sc.close();
+    }
+    public static void counting(int curr, int n){
+        if(curr > n){
+            return;
+        }
+        int i = 0;
+        System.out.print(curr + " ");
+
+        if(curr == 0){
+            i = 1;
+        }
+        for(;i<=9;i++){
+            counting(curr*10+i,n);
+        }
+    }
+}
