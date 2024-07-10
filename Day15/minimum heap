@@ -1,0 +1,61 @@
+package Heaps;
+import java.util.*;
+public class minheap {
+    private ArrayList<Integer> list;
+
+    public void add(int data){
+        this.list.add(data);
+        upheapify(children, this.list.size() -1);
+    }
+
+    private void upheapify(int children){
+        int parent = (child - 1)/2;
+        if(this.list.get(parent) < this.list.get(children)){
+
+        }
+
+    }
+
+    private void swap(int i , int j){
+        int temp = this.list.get(i);
+        this.list.set(i,this.list.get(j));
+        this.list.set(j, temp);
+    }
+
+    public int remove(){
+        swap(0,this.list.size());
+        int element = this.list.remove(this.list.size() - 1);
+        downheapify();
+        return element;
+    }
+
+    public void downheapify(int parent){
+        int leftchild = parent * 2+1;
+        int rightchild = parent * 2 + 2;
+        int temp = parent;
+        if(this.list.get(temp) > this.list.get(leftchild)){
+            temp = leftchild;
+        }
+        if(this.list.get(temp) > this.list.get(leftchild)){
+            temp = rightchild;
+        }
+        if(temp != parent){
+            swap(temp, parent);
+            downheapify(temp);
+        }
+        //base condition
+        if(parent == this.list.size() - 1){
+            return;
+        }
+
+    }
+    public int get(){
+        return this.list.size() > 0? this.list.get(0) : -1;
+    }
+    public int size(){
+        return this.list.size();
+    }
+    public boolean isEmpty(){
+        return this.list.size() == 0;
+    }
+}
