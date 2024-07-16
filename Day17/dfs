@@ -1,0 +1,24 @@
+package GRAPHS;
+
+import java.util.ArrayList;
+
+public class dfs {
+    public ArrayList<Integer> dfsOfGraph(int V, ArrayList<ArrayList<Integer>> adj) {
+        // Code here
+        boolean visited[] = new boolean[V];
+        ArrayList<Integer> ls = new ArrayList<>();
+        dfsearch(0,visited,adj,ls);
+        return ls;
+        
+    }
+    public static void dfsearch(int node, boolean visited[], ArrayList<ArrayList<Integer>> adj, ArrayList<Integer> ls){
+        visited[node] = true;
+        ls.add(node);
+        
+        for(Integer i: adj.get(node)){
+            if(visited[i] == false){
+                dfsearch(i,visited, adj, ls);
+            }
+        }
+    }
+}
